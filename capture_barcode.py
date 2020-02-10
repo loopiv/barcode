@@ -10,7 +10,7 @@ cv2.namedWindow("Image")
 while True:
 #    ret, frame = cam.read()
     ret, frame_raw = cam.read()
-    frame = imutils.resize(frame_raw, width=900)
+    frame = imutils.resize(frame_raw, width=1200)
     cv2.imshow("Image", frame)
     if not ret:
         break
