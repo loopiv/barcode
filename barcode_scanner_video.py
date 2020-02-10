@@ -29,7 +29,7 @@ while True:
     # grab the frame from the threaded video stream and resize it to
     # have a maximum width
     frame = vs.read()
-    frame = imutils.resize(frame, width=400)
+    frame = imutils.resize(frame, width=1200)
     # find the barcodes in the frame and decode each of the barcodes
     barcodes = pyzbar.decode(frame)
     # loop over the detected barcodes
@@ -61,6 +61,8 @@ while True:
 	# if the `q` key was pressed, break from the loop
         if cv2.waitKey(2) & 0xFF == ord('q'):
             break
+
+        time.sleep(0.5)
 
 # close the output CSV file do a bit of cleanup
 print("[INFO] cleaning up...")
