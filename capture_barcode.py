@@ -1,11 +1,17 @@
 import cv2
 from pyzbar import pyzbar
 import imutils
-import time
 
 cam = cv2.VideoCapture(0)
-
 cv2.namedWindow("Image")
+
+def codetype(barcode):
+    if barcode.startswith('WD'):
+        return 'Model'
+    elif barcode.startswith('ST'):
+        return 'Model'
+    else:
+        return 'Other'
 
 while True:
     ret, frame = cam.read()
@@ -38,10 +44,10 @@ while True:
                     0.5, (0, 0, 255), 2)
             # print the barcode type and data to the terminal
             print("[INFO] Found {} barcode: {}".format(barcodeType, barcodeData))
+            print(codetype(barcodeData), " = ", barcodeData)
         # show the output image
         cv2.imshow("Barcode", frame)
 
 cam.release()
-
 cv2.destroyAllWindows()
 
